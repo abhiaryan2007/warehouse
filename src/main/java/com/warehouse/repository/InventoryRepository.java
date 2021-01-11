@@ -2,14 +2,11 @@ package com.warehouse.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.warehouse.dao.Articles;
+import com.warehouse.dao.Inventory;
 
 
-public interface InventoryRepository extends CrudRepository<Articles, Long> {
+public interface InventoryRepository extends CrudRepository<Inventory, Long> {
 	
-	public Articles findByArticleName(String articleName);
+	public Inventory findByName(String name);
 	
-	public Articles findByarticleId(Long articleId);
-	
-
 }
