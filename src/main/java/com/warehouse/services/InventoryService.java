@@ -32,4 +32,14 @@ public class InventoryService {
 		return inventoryRepository.saveAll(inventoryValue);
 	}
 
+	public Inventory get(Long art_id) {
+		// TODO Auto-generated method stub
+		return inventoryRepository.findByArtId(art_id);
+	}
+
+	public void save(Inventory inventory) {
+		inventoryRepository.save(inventory);
+		
+	}
+
 }

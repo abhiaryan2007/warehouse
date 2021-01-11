@@ -9,5 +9,7 @@ public interface ProductsRepository extends CrudRepository<Products, Long>
 
 	public Products findByName(String name);
 
+	public void deleteById(Integer id);
+
 }
   

@@ -1,8 +1,14 @@
 package com.warehouse.rest;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,13 +30,17 @@ public class InventoryController {
 		}
 	
 
-	/*
-	 * @PostMapping(path = "/addItemToInventory",consumes =
-	 * MediaType.APPLICATION_JSON_VALUE) public void addItemToInventory(@RequestBody
-	 * Inventory inventory) { service.addItemToInventory(inventory); }
-	 * 
-	 * @GetMapping("/getInventoryByArticleName") public List<Inventory>
-	 * getInventoryByArticleName(@RequestParam String articleName) { return
-	 * service.getProductsList(); }
-	 */
+		//Update inventory
+		
+		@PutMapping("/inventory/{id}")
+		public ResponseEntity<?> update(@RequestBody Inventory inventory, @PathVariable Long id) {
+		    try {
+		        Inventory removeInventory = service.get(id);
+		        service.save(inventory);
+		        return new ResponseEntity<>(HttpStatus.OK);
+		    } catch (NoSuchElementException e) {
+		        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		    }      
+		}
+	
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.warehouse.dao.Articles;
 import com.warehouse.dao.Products;
 import com.warehouse.repository.ProductsRepository;
 
@@ -26,18 +25,23 @@ public class ProductsService {
 		productsRepository.save(products);
 	}
 
-	/*
-	 * public List<Products> getAllArticles() { final List<Products> products = new
-	 * ArrayList<>(); ProductsRepository.findByProductId(articleId) return products;
-	 * }
-	 * 
-	 * public Articles getArticleByName(String articleName) { return
-	 * ProductsRepository.findByProductId(articleId); }
-	 */
+	public Iterable<Products> list() {
+		return productsRepository.findAll();
+	}
 
-	public static void save(List<Products> productsList) {
-		// TODO Auto-generated method stub
-		
+	public List<Products> getAllFromProducts() {
+		final List<Products> allProducts = new ArrayList<>();
+		productsRepository.findAll().forEach(products -> allProducts.add(products));
+		return allProducts;
+	}
+
+	public Iterable<Products> saveIterable(List<Products> productsValue) {
+		return productsRepository.saveAll(productsValue);
+	}
+
+	public void delete(Integer id) {
+		productsRepository.deleteById(id);
+
 	}
 
 }

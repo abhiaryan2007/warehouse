@@ -21,6 +21,39 @@ public class Products {
 	
 	public Products ()
 	{}
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Articles> getContain_articles() {
+		return contain_articles;
+	}
+
+	public void setContain_articles(List<Articles> contain_articles) {
+		this.contain_articles = contain_articles;
+	}
+
+	public Articles getArticles() {
+		return articles;
+	}
+
+	public void setArticles(Articles articles) {
+		this.articles = articles;
+	}
+	
 	
 	
 	
