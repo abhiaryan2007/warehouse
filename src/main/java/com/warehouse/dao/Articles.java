@@ -8,29 +8,28 @@ public class Articles {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long articleId;
-	
-	private String articleName;
-	private boolean in_stock=false;
-	
-	public Long getArticleId() {
-		return articleId;
+	private Long art_Id;
+	private int amountOf;
+	private int in_stock;
+	public Long getArt_Id() {
+		return art_Id;
 	}
-	public void setArticleId(Long articleId) {
-		this.articleId = articleId;
+	public void setArt_Id(Long art_Id) {
+		this.art_Id = art_Id;
 	}
-	public String getArticleName() {
-		return articleName;
+	public int getAmountOf() {
+		return amountOf;
 	}
-	public void setArticleName(String articleName) {
-		this.articleName = articleName;
+	public void setAmountOf(int amountOf) {
+		this.amountOf = amountOf;
 	}
-	public boolean isIn_stock() {
+	public int getIn_stock() {
 		return in_stock;
 	}
-	public void setIn_stock(boolean in_stock) {
+	public void setIn_stock(int in_stock) {
 		this.in_stock = in_stock;
 	}
+	
 	
 	
 }

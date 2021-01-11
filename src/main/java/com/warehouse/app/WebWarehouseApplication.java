@@ -38,7 +38,7 @@ public class WebWarehouseApplication extends SpringBootServletInitializer{
 		return args -> {
 			// read inventory.json and write to db
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+			mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true );
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 			TypeReference<List<Inventory>> typeReference = new TypeReference<List<Inventory>>() {};
 			
